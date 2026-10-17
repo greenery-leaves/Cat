@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>$NEON — The Cat HODLs. The Human Panics.</title>
   <meta name="description" content="Welcome to the Neon Side. $NEON is a meme coin of the Neon Cat — reads the news, drinks coffee, and waits for the moon." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Neon Cat" />
+  <meta property="og:title" content="$NEON — The Cat HODLs. The Human Panics." />
+  <meta property="og:description" content="Welcome to the Neon Side. Meet the Neon Cat, join the community, and learn about $NEON." />
+  <meta property="og:image" content="assets/images/hero-main.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="$NEON — The Cat HODLs. The Human Panics." />
+  <meta name="twitter:description" content="Welcome to the Neon Side. Meet the Neon Cat, join the community, and learn about $NEON." />
+  <meta name="twitter:image" content="assets/images/hero-main.jpeg" />
 
   <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -116,6 +125,27 @@
     }
     .timeline-dot { box-shadow: 0 0 10px rgba(0,240,255,.9), 0 0 28px rgba(0,240,255,.5); }
 
+    /* ===== Hero motion ===== */
+    @keyframes hero-drift {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes hero-signal {
+      0%, 100% { box-shadow: 0 0 10px rgba(0,240,255,.2); }
+      50% { box-shadow: 0 0 24px rgba(0,240,255,.55); }
+    }
+    .hero-float { display: inline-block; animation: hero-drift 4s ease-in-out infinite; }
+    .hero-signal { animation: hero-signal 3s ease-in-out infinite; }
+
+    .faq-item summary:focus-visible { outline: 2px solid #00F0FF; outline-offset: 4px; }
+    .faq-item summary::after { content: "+"; float: right; color: #00F0FF; font-size: 1.25rem; line-height: 1; }
+    .faq-item[open] summary::after { content: "-"; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+
     /* ===== Scroll reveal ===== */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -137,7 +167,7 @@
       <!-- Round logo -->
       <a href="#top" class="flex items-center gap-3 group" aria-label="Neon Cat — home">
         <img src="assets/images/logo.jpeg" alt="Neon Cat logo"
-             class="w-10 h-10 lg:w-12 lg:h-12 rounded-full object-cover border-2 border-neon-cyan/70 glow-logo transition-transform duration-300 group-hover:scale-110" />
+             class="w-10 h-10 lg:w-12 lg:h-12 rounded-full object-cover border-2 border-neon-cyan/70 glow-logo transition-transform duration-300 group-hover:scale-110" loading="lazy" />
         <span class="hidden sm:inline font-extrabold tracking-[0.2em] text-neon-cyan text-glow-cyan text-lg">$NEON</span>
       </a>
 
@@ -190,19 +220,20 @@
   </header>
 
   <!-- ================= HERO ================= -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden"
-           style="background-image: url('assets/images/hero-main.jpeg'); background-size: cover; background-position: center;">
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <img src="assets/images/hero-main.jpeg" alt="" aria-hidden="true" fetchpriority="high"
+         class="absolute inset-0 w-full h-full object-cover" />
     <!-- Dark gradient overlay for readability -->
     <div class="absolute inset-0 bg-gradient-to-b from-neon-dark/90 via-neon-dark/70 to-neon-dark"></div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,240,255,0.12),transparent_60%)]"></div>
 
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-20">
-      <p class="inline-block mb-6 px-4 py-1.5 rounded-full border border-neon-cyan/50 bg-neon-cyan/10 text-neon-cyan text-xs sm:text-sm font-bold tracking-[0.3em] uppercase">
+      <p class="hero-signal inline-block mb-6 px-4 py-1.5 rounded-full border border-neon-cyan/50 bg-neon-cyan/10 text-neon-cyan text-xs sm:text-sm font-bold tracking-[0.3em] uppercase">
         Welcome to the Neon Side
       </p>
 
       <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-        <span class="text-neon-cyan text-glow-cyan">The Cat HODLs.</span>
+        <span class="hero-float text-neon-cyan text-glow-cyan">The Cat HODLs.</span>
         <span class="block sm:inline sm:mx-2">
           <span class="text-neon-pink text-glow-pink">The Human Panics.</span>
         </span>
@@ -231,6 +262,41 @@
         <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
       </svg>
     </a>
+  </section>
+
+  <!-- ================= WHY NEON CAT ================= -->
+  <section id="why-neon-cat" class="scroll-mt-24 relative py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-neon-pink font-bold tracking-[0.3em] uppercase text-sm mb-4">Why Neon Cat?</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-neon-cyan text-glow-cyan">Less noise. More cat.</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-gray-400">A meme-first token with simple published tokenomics and a community built around the joke.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <article class="reveal card-glow rounded-xl p-6 sm:p-7">
+          <div class="w-12 h-12 rounded-lg border border-neon-cyan/50 bg-neon-cyan/10 flex items-center justify-center text-neon-cyan mb-5" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m9-9H3" /></svg>
+          </div>
+          <h3 class="text-xl font-extrabold text-neon-cyan mb-2">0% buy / sell tax</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">The published tokenomics state zero buy and sell tax. Check the contract before trading.</p>
+        </article>
+        <article class="reveal card-glow rounded-xl p-6 sm:p-7">
+          <div class="w-12 h-12 rounded-lg border border-neon-pink/50 bg-neon-pink/10 flex items-center justify-center text-neon-pink mb-5" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-2.2 0-4 1.3-4 3s1.8 3 4 3 4 1.3 4 3-1.8 3-4 3m0-12c1.3 0 2.5.5 3.2 1.3M12 8V5m0 15v-3m-7-5h2m10 0h2" /></svg>
+          </div>
+          <h3 class="text-xl font-extrabold text-neon-pink mb-2">Fixed supply</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">The stated total supply is 1,000,000,000 $NEON. Supply details are listed in tokenomics.</p>
+        </article>
+        <article class="reveal card-glow rounded-xl p-6 sm:p-7">
+          <div class="w-12 h-12 rounded-lg border border-neon-purple/50 bg-neon-purple/10 flex items-center justify-center text-neon-purple mb-5" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-8-4.4-8-11a4.5 4.5 0 018-2.9A4.5 4.5 0 0120 10c0 6.6-8 11-8 11z" /></svg>
+          </div>
+          <h3 class="text-xl font-extrabold text-neon-purple mb-2">Community-powered memes</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">No grand promises: just the Neon Cat, shared memes, and a place for the community to gather.</p>
+        </article>
+      </div>
+    </div>
   </section>
 
   <!-- ================= ABOUT ================= -->
@@ -462,6 +528,25 @@
     </div>
   </section>
 
+  <!-- ================= COMMUNITY HIGHLIGHTS ================= -->
+  <section id="community-highlights" class="scroll-mt-24 relative py-20 lg:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-15 bg-cover bg-center" style="background-image: url('assets/images/bg-pattern.jpeg');" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-neon-dark via-neon-dark/70 to-neon-dark" aria-hidden="true"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-neon-pink font-bold tracking-[0.3em] uppercase text-sm mb-4">Community highlights</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-neon-cyan text-glow-cyan">The latest from Neon Cat</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-gray-400">Follow the official account for community posts and announcements.</p>
+      </div>
+      <div class="reveal max-w-2xl mx-auto rounded-xl border border-neon-cyan/30 bg-black/40 p-3 sm:p-5 shadow-[0_0_28px_rgba(0,240,255,0.12)]">
+        <a class="twitter-timeline" data-theme="dark" data-chrome="noheader nofooter transparent" data-height="420" href="https://twitter.com/neon_cat_crypto?ref_src=twsrc%5Etfw" aria-label="Neon Cat posts on X">Posts from Neon Cat on X</a>
+        <noscript><p class="text-center text-gray-300 py-8">Enable JavaScript to view the X feed, or visit the <a class="text-neon-cyan underline" href="https://x.com/neon_cat_crypto" target="_blank" rel="noopener noreferrer">official Neon Cat account</a>.</p></noscript>
+      </div>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <p class="text-center text-gray-500 text-xs mt-4">The embedded feed is provided by X and may be unavailable if third-party content is blocked.</p>
+    </div>
+  </section>
+
   <!-- ================= COMMUNITY ================= -->
   <section id="community" class="scroll-mt-24 relative py-24 lg:py-36 overflow-hidden"
            style="background-image: url('assets/images/community-squad.jpeg'); background-size: cover; background-position: center;">
@@ -475,8 +560,8 @@
         Join the <span class="text-neon-pink text-glow-pink">Neon Cat Army</span>
       </h2>
       <p class="reveal max-w-2xl mx-auto text-gray-300 text-base sm:text-lg leading-relaxed mb-10">
-        The cat doesn't do this alone. Thousands of calm, coffee-fueled humans are already
-        on the Neon Side. Grab your spot in the squad — memes, alerts and moon talk, 24/7.
+        The cat doesn't do this alone. Join the Neon Side for community memes, updates, and
+        moon talk. Bring your coffee and your best cat reactions.
       </p>
       <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
         <a href="https://x.com/neon_cat_crypto" target="_blank" rel="noopener"
@@ -491,23 +576,59 @@
     </div>
   </section>
 
+  <!-- ================= FAQ ================= -->
+  <section id="faq" class="scroll-mt-24 relative py-20 lg:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-neon-pink font-bold tracking-[0.3em] uppercase text-sm mb-4">FAQ</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-neon-cyan text-glow-cyan">Before you ape in</h2>
+      </div>
+      <div class="space-y-3">
+        <details class="faq-item card-glow rounded-xl p-5 sm:p-6">
+          <summary class="cursor-pointer list-none pr-8 font-bold text-neon-cyan">Is the contract renounced?</summary>
+          <p class="mt-4 text-gray-400 text-sm leading-relaxed">This page does not claim that ownership is renounced. Verify the current owner and permissions on the relevant blockchain explorer using the official contract address before making a decision.</p>
+        </details>
+        <details class="faq-item card-glow rounded-xl p-5 sm:p-6">
+          <summary class="cursor-pointer list-none pr-8 font-bold text-neon-cyan">What is the tax?</summary>
+          <p class="mt-4 text-gray-400 text-sm leading-relaxed">The tokenomics published here state 0% buy and sell tax. On-chain behavior can differ from website copy, so verify the contract and transaction details independently.</p>
+        </details>
+        <details class="faq-item card-glow rounded-xl p-5 sm:p-6">
+          <summary class="cursor-pointer list-none pr-8 font-bold text-neon-cyan">Is liquidity burned or locked?</summary>
+          <p class="mt-4 text-gray-400 text-sm leading-relaxed">No burn or lock status is confirmed on this page. Treat liquidity as unverified unless you can inspect verifiable on-chain proof for the correct pool.</p>
+        </details>
+        <details class="faq-item card-glow rounded-xl p-5 sm:p-6">
+          <summary class="cursor-pointer list-none pr-8 font-bold text-neon-cyan">Where can I find the official contract address?</summary>
+          <p class="mt-4 text-gray-400 text-sm leading-relaxed">Check the official <a class="text-neon-cyan underline" href="https://x.com/neon_cat_crypto" target="_blank" rel="noopener noreferrer">Neon Cat account on X</a> or <a class="text-neon-cyan underline" href="https://t.me/neon_cat_crypto" target="_blank" rel="noopener noreferrer">Telegram</a>. Confirm the network and address independently; never trade using an address from an unsolicited message.</p>
+        </details>
+        <details class="faq-item card-glow rounded-xl p-5 sm:p-6">
+          <summary class="cursor-pointer list-none pr-8 font-bold text-neon-cyan">Does $NEON have intrinsic value or guarantee returns?</summary>
+          <p class="mt-4 text-gray-400 text-sm leading-relaxed">No. $NEON is a meme coin with no intrinsic value, and there is no promise or guarantee of profit. You could lose your entire purchase.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RISK DISCLAIMER ================= -->
+  <section class="relative py-8 border-y border-neon-pink/25 bg-neon-pink/5" aria-label="Risk disclaimer">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neon-pink text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-2">Meme coin. High risk.</p>
+      <p class="text-gray-300 text-sm leading-relaxed">$NEON has no intrinsic value and does not promise financial returns. This is not investment advice; only participate with money you can afford to lose.</p>
+    </div>
+  </section>
+
   <!-- ================= FOOTER ================= -->
   <footer class="border-t border-white/10 bg-neon-dark py-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <img src="assets/images/logo-cat-face.jpeg" alt="Neon Cat face"
            class="blend-screen w-12 h-12 rounded-full object-cover border border-neon-cyan/60 glow-logo mx-auto mb-5" loading="lazy" />
-      <p class="text-gray-500 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto mb-6">
-        Disclaimer: $NEON is a meme coin with no intrinsic value and no expectation of
-        financial return. It is created for entertainment purposes only and does not
-        constitute financial, investment, or any other type of advice. Always do your own
-        research and never invest more than you can afford to lose. The Neon Cat is not
-        responsible for your panic selling.
-      </p>
       <p class="text-gray-600 text-xs tracking-wider">
         &copy; 2026 Neon Cat. All rights reserved. HODL tight.
       </p>
     </div>
   </footer>
+
+    <a href="#how-to-buy" class="md:hidden fixed z-40 inset-x-4 bottom-4 neon-btn rounded-xl px-6 py-4 text-center text-base font-extrabold tracking-wide text-white shadow-2xl"
+      style="padding-bottom: max(1rem, env(safe-area-inset-bottom));" aria-label="Buy $NEON: go to buying instructions">Buy $NEON</a>
 
   <!-- ================= SCRIPTS ================= -->
   <script>
