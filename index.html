@@ -186,9 +186,13 @@
            class="px-4 py-2 rounded-lg text-sm font-semibold text-gray-200 border border-transparent hover:text-neon-pink hover:border-neon-pink/60 hover:shadow-[0_0_14px_rgba(255,46,200,0.35)] transition-all duration-300">
           Telegram
         </a>
-        <a href="#launch-status"
-           class="neon-btn px-5 py-2 rounded-lg text-sm font-extrabold tracking-wide text-white">
-          Launch status
+        <button type="button" data-buy-pending disabled aria-describedby="buy-token-note"
+                class="neon-btn px-5 py-2 rounded-lg text-sm font-extrabold tracking-wide text-white opacity-60 cursor-not-allowed">
+          Buy with SOL - after launch
+        </button>
+        <a data-buy-link target="_blank" rel="noopener noreferrer"
+           class="neon-btn hidden px-5 py-2 rounded-lg text-sm font-extrabold tracking-wide text-white">
+          Buy with SOL
         </a>
       </nav>
 
@@ -216,9 +220,13 @@
            class="mobile-link px-4 py-3 rounded-lg font-semibold text-gray-200 hover:text-neon-pink hover:bg-neon-pink/10 transition-colors">
           Telegram
         </a>
-        <a href="#launch-status"
-           class="mobile-link neon-btn px-4 py-3 rounded-lg text-center font-extrabold tracking-wide text-white">
-          Launch status
+        <button type="button" data-buy-pending disabled aria-describedby="buy-token-note"
+                class="mobile-link neon-btn px-4 py-3 rounded-lg text-center font-extrabold tracking-wide text-white opacity-60 cursor-not-allowed">
+          Buy with SOL - after launch
+        </button>
+        <a data-buy-link target="_blank" rel="noopener noreferrer"
+           class="mobile-link neon-btn hidden px-4 py-3 rounded-lg text-center font-extrabold tracking-wide text-white">
+          Buy with SOL
         </a>
       </nav>
     </div>
@@ -253,15 +261,22 @@
       </p>
 
       <div class="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-        <a href="https://t.me/neon_cat_crypto" target="_blank" rel="noopener noreferrer"
-           class="neon-btn w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-extrabold tracking-wide text-white">
-          Share feedback in Telegram
+        <button type="button" data-buy-pending disabled aria-describedby="buy-token-note"
+                class="neon-btn w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-extrabold tracking-wide text-white opacity-60 cursor-not-allowed">
+          Buy with SOL - after launch
+        </button>
+        <a data-buy-link target="_blank" rel="noopener noreferrer"
+           class="neon-btn hidden w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-extrabold tracking-wide text-white">
+          Buy with SOL
         </a>
-        <a href="#launch-status"
+        <a href="https://t.me/neon_cat_crypto" target="_blank" rel="noopener noreferrer"
            class="neon-outline w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-bold tracking-wide text-neon-cyan">
-          View launch status
+          Join Telegram
         </a>
       </div>
+      <p id="buy-token-note" role="status" class="mt-4 text-sm text-gray-400">
+        Purchase opens on Pump.fun after launch. Connect a Solana wallet and use SOL there.
+      </p>
     </div>
 
     <!-- Scroll hint -->
@@ -387,11 +402,58 @@
             <span class="font-bold text-gray-300 uppercase tracking-wider text-sm">Mint address</span>
             <span class="font-black text-neon-pink text-glow-pink text-xl sm:text-2xl">Not issued</span>
           </div>
+          <div class="pt-4">
+            <h3 class="text-neon-cyan font-extrabold uppercase tracking-wider text-sm mb-3">Official token links</h3>
+            <div class="space-y-3">
+              <div class="card-glow rounded-xl px-5 py-4 flex items-center justify-between gap-4">
+                <span class="font-semibold text-gray-200">Pump.fun</span>
+                <span class="text-sm text-gray-400">After launch</span>
+              </div>
+              <div class="card-glow rounded-xl px-5 py-4 flex items-center justify-between gap-4">
+                <span class="font-semibold text-gray-200">Solscan</span>
+                <span class="text-sm text-gray-400">After mint is issued</span>
+              </div>
+              <div class="card-glow rounded-xl px-5 py-4 flex items-center justify-between gap-4">
+                <span class="font-semibold text-gray-200">CoinMarketCap</span>
+                <span class="text-sm text-gray-400">If listed</span>
+              </div>
+            </div>
+            <p class="text-gray-500 text-xs leading-relaxed mt-3">A CoinMarketCap listing is not guaranteed. Links will be added only after each official page is verified.</p>
+          </div>
           <p class="text-gray-400 text-sm leading-relaxed pt-2">
             This is a community preview, not a live token sale. Details may change while the project is being discussed.
           </p>
         </div>
       </div>
+
+      <section id="market-data" class="mt-16 scroll-mt-24" aria-labelledby="market-data-title">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
+          <div>
+            <p class="text-neon-pink font-bold tracking-[0.3em] uppercase text-xs mb-2">After launch</p>
+            <h3 id="market-data-title" class="text-2xl sm:text-3xl font-black text-neon-cyan text-glow-cyan">Token market data</h3>
+          </div>
+          <p role="status" class="text-gray-400 text-sm">Waiting for token mint and verified market data.</p>
+        </div>
+        <dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="card-glow rounded-xl p-5">
+            <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">Market cap</dt>
+            <dd class="text-lg font-extrabold text-neon-cyan">Available after trading starts</dd>
+          </div>
+          <div class="card-glow rounded-xl p-5">
+            <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">Total supply</dt>
+            <dd class="text-lg font-extrabold text-neon-cyan">Available after mint</dd>
+          </div>
+          <div class="card-glow rounded-xl p-5">
+            <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">Circulating supply</dt>
+            <dd class="text-lg font-extrabold text-neon-cyan">Requires verified data source</dd>
+          </div>
+          <div class="card-glow rounded-xl p-5">
+            <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">Contract address</dt>
+            <dd class="text-lg font-extrabold text-neon-cyan">Not issued</dd>
+          </div>
+        </dl>
+        <p class="text-gray-500 text-xs leading-relaxed mt-4">Market data will be added only after the token and its source can be verified. Circulating supply is not always the same as total supply.</p>
+      </section>
     </div>
   </section>
 
@@ -629,8 +691,12 @@
     </div>
   </footer>
 
-    <a href="#launch-status" class="md:hidden fixed z-40 inset-x-4 bottom-4 neon-btn rounded-xl px-6 py-4 text-center text-base font-extrabold tracking-wide text-white shadow-2xl"
-      style="padding-bottom: max(1rem, env(safe-area-inset-bottom));" aria-label="View Neon Cat launch status">Launch status</a>
+      <button type="button" data-buy-pending disabled aria-describedby="buy-token-note"
+           class="md:hidden fixed z-40 inset-x-4 bottom-4 neon-btn rounded-xl px-6 py-4 text-center text-base font-extrabold tracking-wide text-white shadow-2xl opacity-60 cursor-not-allowed"
+           style="padding-bottom: max(1rem, env(safe-area-inset-bottom));" aria-label="Buy with SOL after the token launches">Buy with SOL - after launch</button>
+      <a data-buy-link target="_blank" rel="noopener noreferrer"
+        class="md:hidden hidden fixed z-40 inset-x-4 bottom-4 neon-btn rounded-xl px-6 py-4 text-center text-base font-extrabold tracking-wide text-white shadow-2xl"
+        style="padding-bottom: max(1rem, env(safe-area-inset-bottom));" aria-label="Buy token with SOL on Pump.fun">Buy with SOL</a>
 
   <!-- ================= SCRIPTS ================= -->
   <script>
@@ -642,6 +708,18 @@
       var mobileMenu = document.getElementById('mobile-menu');
       var iconOpen = document.getElementById('icon-open');
       var iconClose = document.getElementById('icon-close');
+      var tokenMintAddress = '';
+      var isValidSolanaMint = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(tokenMintAddress);
+
+      if (isValidSolanaMint) {
+        document.querySelectorAll('[data-buy-link]').forEach(function (link) {
+          link.href = 'https://pump.fun/coin/' + tokenMintAddress;
+          link.classList.remove('hidden');
+        });
+        document.querySelectorAll('[data-buy-pending]').forEach(function (button) {
+          button.classList.add('hidden');
+        });
+      }
 
       /* ---------- Mobile menu toggle ---------- */
       function closeMenu() {
