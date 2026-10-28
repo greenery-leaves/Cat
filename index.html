@@ -102,6 +102,27 @@
       background-color: rgba(255,46,200,.08);
       box-shadow: 0 0 18px rgba(255,46,200,.7), inset 0 0 18px rgba(255,46,200,.25);
     }
+    .social-shimmer {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: linear-gradient(115deg, #00b8d4, #6952d8, #e624a5, #00b8d4);
+      background-size: 260% 260%;
+      border: 1px solid rgba(255,255,255,.35);
+      box-shadow: 0 0 14px rgba(0,240,255,.35), 0 0 28px rgba(255,46,200,.25);
+      animation: social-shimmer 4s ease-in-out infinite;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .social-shimmer:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(0,240,255,.65), 0 0 38px rgba(255,46,200,.45);
+    }
+    .social-shimmer:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    @keyframes social-shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
     /* ===== Icons with black background: dissolve into the dark theme ===== */
     .blend-screen { mix-blend-mode: screen; }
 
@@ -178,12 +199,12 @@
 
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-3 lg:gap-4" aria-label="Main navigation">
-        <a href="https://x.com/neoncatpaw" target="_blank" rel="noopener noreferrer"
-           class="px-4 py-2 rounded-lg text-sm font-semibold text-gray-200 border border-transparent hover:text-neon-cyan hover:border-neon-cyan/60 hover:shadow-[0_0_14px_rgba(0,240,255,0.35)] transition-all duration-300">
+          <a href="https://x.com/neoncatpaw" target="_blank" rel="noopener noreferrer"
+            class="social-shimmer px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300">
           X (Twitter)
         </a>
-        <a href="https://t.me/neoncatpaw" target="_blank" rel="noopener noreferrer"
-           class="px-4 py-2 rounded-lg text-sm font-semibold text-gray-200 border border-transparent hover:text-neon-pink hover:border-neon-pink/60 hover:shadow-[0_0_14px_rgba(255,46,200,0.35)] transition-all duration-300">
+          <a href="https://t.me/neoncatpaw" target="_blank" rel="noopener noreferrer"
+            class="social-shimmer px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300">
           Telegram
         </a>
         <a href="#market-data" data-buy-pending aria-describedby="buy-token-note"
@@ -212,12 +233,12 @@
     <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden hidden border-t border-white/10 bg-neon-dark/95 backdrop-blur-xl">
       <nav class="px-4 py-4 flex flex-col gap-2" aria-label="Mobile navigation">
-        <a href="https://x.com/neoncatpaw" target="_blank" rel="noopener noreferrer"
-           class="mobile-link px-4 py-3 rounded-lg font-semibold text-gray-200 hover:text-neon-cyan hover:bg-neon-cyan/10 transition-colors">
+          <a href="https://x.com/neoncatpaw" target="_blank" rel="noopener noreferrer"
+            class="mobile-link social-shimmer px-4 py-3 rounded-lg font-bold transition-colors">
           X (Twitter)
         </a>
-        <a href="https://t.me/neoncatpaw" target="_blank" rel="noopener noreferrer"
-           class="mobile-link px-4 py-3 rounded-lg font-semibold text-gray-200 hover:text-neon-pink hover:bg-neon-pink/10 transition-colors">
+          <a href="https://t.me/neoncatpaw" target="_blank" rel="noopener noreferrer"
+            class="mobile-link social-shimmer px-4 py-3 rounded-lg font-bold transition-colors">
           Telegram
         </a>
         <a href="#market-data" data-buy-pending aria-describedby="buy-token-note"
@@ -275,10 +296,6 @@
         <a data-buy-link target="_blank" rel="noopener noreferrer"
            class="neon-btn hidden w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-extrabold tracking-wide text-white">
           Buy with SOL
-        </a>
-        <a href="https://t.me/neoncatpaw" target="_blank" rel="noopener noreferrer"
-           class="neon-outline w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-bold tracking-wide text-neon-cyan">
-          Join Telegram
         </a>
       </div>
       <p id="buy-token-note" role="status" class="mt-4 text-sm text-gray-400">
@@ -627,12 +644,12 @@
         moon talk. Bring your coffee and your best cat reactions.
       </p>
       <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-        <a href="https://x.com/neoncatpaw" target="_blank" rel="noopener noreferrer"
-           class="neon-outline-pink w-full sm:w-auto px-12 py-5 rounded-xl text-lg font-extrabold tracking-wide text-neon-pink">
+          <a href="https://x.com/neoncatpaw" target="_blank" rel="noopener noreferrer"
+            class="social-shimmer w-full sm:w-auto px-12 py-5 rounded-xl text-lg font-extrabold tracking-wide">
           Twitter (X)
         </a>
-        <a href="https://t.me/neoncatpaw" target="_blank" rel="noopener noreferrer"
-           class="neon-outline w-full sm:w-auto px-12 py-5 rounded-xl text-lg font-extrabold tracking-wide text-neon-cyan">
+          <a href="https://t.me/neoncatpaw" target="_blank" rel="noopener noreferrer"
+            class="social-shimmer w-full sm:w-auto px-12 py-5 rounded-xl text-lg font-extrabold tracking-wide">
           Telegram
         </a>
       </div>
