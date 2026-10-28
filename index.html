@@ -207,9 +207,9 @@
             class="social-shimmer px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300">
           Telegram
         </a>
-        <a href="#market-data" data-buy-pending aria-describedby="buy-token-note"
+        <a href="#launch-status" data-buy-pending
            class="neon-btn px-5 py-2 rounded-lg text-sm font-extrabold tracking-wide text-white opacity-80">
-          Buy with SOL - after launch
+          Token status
         </a>
         <a data-buy-link target="_blank" rel="noopener noreferrer"
            class="neon-btn hidden px-5 py-2 rounded-lg text-sm font-extrabold tracking-wide text-white">
@@ -241,9 +241,9 @@
             class="mobile-link social-shimmer px-4 py-3 rounded-lg font-bold transition-colors">
           Telegram
         </a>
-        <a href="#market-data" data-buy-pending aria-describedby="buy-token-note"
+        <a href="#launch-status" data-buy-pending
            class="mobile-link neon-btn px-4 py-3 rounded-lg text-center font-extrabold tracking-wide text-white opacity-80">
-          Buy with SOL - after launch
+          Token status
         </a>
         <a data-buy-link target="_blank" rel="noopener noreferrer"
            class="mobile-link neon-btn hidden px-4 py-3 rounded-lg text-center font-extrabold tracking-wide text-white">
@@ -282,21 +282,33 @@
       </p>
 
       <div class="mt-7 max-w-3xl mx-auto text-left">
-        <div class="card-glow rounded-xl px-5 py-4 min-w-0">
-          <p class="text-neon-cyan text-xs font-bold uppercase tracking-wider">Contract address</p>
-          <p class="mt-2 text-sm sm:text-base font-extrabold text-gray-200 break-all" role="status">Not issued yet</p>
+        <div class="card-glow rounded-xl px-5 py-4 min-w-0 flex flex-wrap items-center justify-between gap-4">
+          <div class="min-w-0 flex-1">
+            <p class="text-neon-cyan text-xs font-bold uppercase tracking-wider">Contract address</p>
+            <p id="contract-address-value" class="mt-2 text-sm sm:text-base font-extrabold text-gray-200 break-all" role="status" aria-live="polite">Not issued yet</p>
+          </div>
+          <div class="flex shrink-0 items-center gap-2">
+            <button id="copy-contract-address" type="button" class="hidden p-2 rounded-lg border border-neon-cyan/50 text-neon-cyan hover:bg-neon-cyan/10" aria-label="Copy contract address" title="Copy contract address">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" /><path stroke-linecap="round" stroke-linejoin="round" d="M16 8V5a2 2 0 00-2-2H5a2 2 0 00-2 2v9a2 2 0 002 2h3" /></svg>
+            </button>
+            <a id="solscan-contract-link" class="hidden px-3 py-2 rounded-lg border border-neon-cyan/50 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/10" target="_blank" rel="noopener noreferrer">Solscan</a>
+          </div>
         </div>
       </div>
 
       <div class="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-        <a href="#market-data" data-buy-pending aria-describedby="buy-token-note"
+        <a href="#launch-status" data-buy-pending
            class="neon-btn w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-extrabold tracking-wide text-white opacity-80">
-          Buy with SOL - after launch
+          Token status
         </a>
         <a data-buy-link target="_blank" rel="noopener noreferrer"
            class="neon-btn hidden w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-extrabold tracking-wide text-white">
           Buy with SOL
         </a>
+        <a href="https://x.com/neoncatpaw" target="_blank" rel="noopener noreferrer"
+           class="social-shimmer w-full sm:w-auto px-8 py-4 rounded-xl text-lg font-extrabold tracking-wide">X</a>
+        <a href="https://t.me/neoncatpaw" target="_blank" rel="noopener noreferrer"
+           class="social-shimmer w-full sm:w-auto px-8 py-4 rounded-xl text-lg font-extrabold tracking-wide">Telegram</a>
       </div>
       <p id="buy-token-note" role="status" class="mt-4 text-sm text-gray-400">
         Purchase opens on Pump.fun after launch. Connect a Solana wallet and use SOL there.
@@ -460,8 +472,8 @@
             <dd class="text-lg font-extrabold text-neon-cyan">Available after trading starts</dd>
           </div>
           <div class="card-glow rounded-xl p-5">
-            <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">Total supply</dt>
-            <dd class="text-lg font-extrabold text-neon-cyan">Available after mint</dd>
+            <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">Verified on-chain supply</dt>
+            <dd class="text-lg font-extrabold text-neon-cyan">To be verified after mint</dd>
           </div>
           <div class="card-glow rounded-xl p-5">
             <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">Circulating supply</dt>
@@ -707,9 +719,9 @@
     </div>
   </footer>
 
-        <a href="#market-data" data-buy-pending aria-describedby="buy-token-note"
+        <a href="#launch-status" data-buy-pending
           class="md:hidden fixed z-40 inset-x-4 bottom-4 neon-btn rounded-xl px-6 py-4 text-center text-base font-extrabold tracking-wide text-white shadow-2xl opacity-90"
-          style="padding-bottom: max(1rem, env(safe-area-inset-bottom));" aria-label="Buy with SOL after launch; view launch status">Buy with SOL - after launch</a>
+          style="padding-bottom: max(1rem, env(safe-area-inset-bottom));" aria-label="View token status">Token status</a>
       <a data-buy-link target="_blank" rel="noopener noreferrer"
         class="md:hidden hidden fixed z-40 inset-x-4 bottom-4 neon-btn rounded-xl px-6 py-4 text-center text-base font-extrabold tracking-wide text-white shadow-2xl"
         style="padding-bottom: max(1rem, env(safe-area-inset-bottom));" aria-label="Buy token with SOL on Pump.fun">Buy with SOL</a>
@@ -726,8 +738,15 @@
       var iconClose = document.getElementById('icon-close');
       var tokenMintAddress = '';
       var isValidSolanaMint = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(tokenMintAddress);
+      var contractAddressValue = document.getElementById('contract-address-value');
+      var copyContractAddress = document.getElementById('copy-contract-address');
+      var solscanContractLink = document.getElementById('solscan-contract-link');
 
       if (isValidSolanaMint) {
+        contractAddressValue.textContent = tokenMintAddress;
+        copyContractAddress.classList.remove('hidden');
+        solscanContractLink.href = 'https://solscan.io/token/' + tokenMintAddress;
+        solscanContractLink.classList.remove('hidden');
         document.querySelectorAll('[data-buy-link]').forEach(function (link) {
           link.href = 'https://pump.fun/coin/' + tokenMintAddress;
           link.classList.remove('hidden');
@@ -735,6 +754,24 @@
         document.querySelectorAll('[data-buy-pending]').forEach(function (button) {
           button.classList.add('hidden');
         });
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          copyContractAddress.addEventListener('click', function () {
+            navigator.clipboard.writeText(tokenMintAddress).then(function () {
+              copyContractAddress.setAttribute('aria-label', 'Contract address copied');
+              copyContractAddress.title = 'Copied';
+              window.setTimeout(function () {
+                copyContractAddress.setAttribute('aria-label', 'Copy contract address');
+                copyContractAddress.title = 'Copy contract address';
+              }, 1800);
+            }).catch(function () {
+              copyContractAddress.setAttribute('aria-label', 'Copy failed; select the contract address');
+              copyContractAddress.title = 'Copy failed';
+            });
+          });
+        } else {
+          copyContractAddress.disabled = true;
+          copyContractAddress.title = 'Clipboard unavailable';
+        }
       }
 
       /* ---------- Mobile menu toggle ---------- */
