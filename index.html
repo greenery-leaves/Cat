@@ -463,23 +463,24 @@
             <p class="text-neon-pink font-bold tracking-[0.3em] uppercase text-xs mb-2">Market data</p>
             <h3 id="market-data-title" class="text-2xl sm:text-3xl font-black text-neon-cyan text-glow-cyan">Token market data</h3>
           </div>
-          <p role="status" class="text-gray-400 text-sm">Market metrics are not verified on this site.</p>
+          <p id="market-data-status" role="status" class="text-gray-400 text-sm" aria-live="polite">Loading live market data...</p>
         </div>
         <dl class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div class="card-glow rounded-xl p-5">
             <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">Market cap</dt>
-            <dd class="text-lg font-extrabold text-neon-cyan">Available after trading starts</dd>
+            <dd id="market-cap-value" class="text-lg font-extrabold text-neon-cyan" aria-live="polite">Loading...</dd>
+            <a id="market-cap-source" class="hidden mt-2 inline-block text-xs text-neon-cyan underline" target="_blank" rel="noopener noreferrer">DexScreener</a>
           </div>
           <div class="card-glow rounded-xl p-5">
-            <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">Verified on-chain supply</dt>
-            <dd class="text-lg font-extrabold text-neon-cyan">Awaiting on-chain verification</dd>
+            <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">On-chain total supply</dt>
+            <dd class="text-lg font-extrabold text-neon-cyan">1,000,000,000 NPAW</dd>
           </div>
           <div class="card-glow rounded-xl p-5">
             <dt class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-3">Circulating supply</dt>
-            <dd class="text-lg font-extrabold text-neon-cyan">Requires verified data source</dd>
+            <dd class="text-lg font-extrabold text-neon-cyan">Not reported by data provider</dd>
           </div>
         </dl>
-        <p class="text-gray-500 text-xs leading-relaxed mt-4">The announced total supply is 1,000,000,000 NPAW; verify the on-chain supply against the mint. Market data will be added only after its source can be verified. Circulating supply is not always the same as total supply.</p>
+        <p class="text-gray-500 text-xs leading-relaxed mt-4">Market cap refreshes every 60 seconds from DexScreener. Total supply was verified on-chain; circulating supply is not provided by the available public market-data source.</p>
       </section>
     </div>
   </section>
@@ -740,6 +741,10 @@
       var contractAddressValue = document.getElementById('contract-address-value');
       var copyContractAddress = document.getElementById('copy-contract-address');
       var solscanContractLink = document.getElementById('solscan-contract-link');
+      var marketCapValue = document.getElementById('market-cap-value');
+      var marketCapSource = document.getElementById('market-cap-source');
+      var marketDataStatus = document.getElementById('market-data-status');
+      var marketDataRequestPending = false;
 
       if (isValidSolanaMint) {
         contractAddressValue.textContent = tokenMintAddress;
@@ -772,6 +777,53 @@
           copyContractAddress.title = 'Clipboard unavailable';
         }
       }
+
+      function updateMarketData() {
+        if (!isValidSolanaMint || marketDataRequestPending) return;
+        marketDataRequestPending = true;
+
+        fetch('https://api.dexscreener.com/token-pairs/v1/solana/' + tokenMintAddress)
+          .then(function (response) {
+            if (!response.ok) throw new Error('Market data request failed');
+            return response.json();
+          })
+          .then(function (pairs) {
+            var marketPairs = pairs.filter(function (pair) {
+              return pair.chainId === 'solana' && pair.baseToken &&
+                pair.baseToken.address === tokenMintAddress &&
+                typeof pair.marketCap === 'number' && Number.isFinite(pair.marketCap) && pair.marketCap > 0;
+            });
+            marketPairs.sort(function (firstPair, secondPair) {
+              return Number(secondPair.liquidity && secondPair.liquidity.usd || 0) -
+                Number(firstPair.liquidity && firstPair.liquidity.usd || 0);
+            });
+
+            var marketPair = marketPairs[0];
+            if (!marketPair) throw new Error('Market cap is not available');
+
+            marketCapValue.textContent = new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              maximumFractionDigits: 2
+            }).format(Number(marketPair.marketCap));
+            if (marketPair.url) {
+              marketCapSource.href = marketPair.url;
+              marketCapSource.classList.remove('hidden');
+            }
+            marketDataStatus.textContent = 'Updated ' + new Date().toLocaleTimeString();
+          })
+          .catch(function () {
+            marketDataStatus.textContent = marketCapValue.textContent === 'Loading...'
+              ? 'Live data unavailable. Try again shortly.'
+              : 'Update failed. Showing the last received value.';
+          })
+          .finally(function () {
+            marketDataRequestPending = false;
+          });
+      }
+
+      updateMarketData();
+      if (isValidSolanaMint) window.setInterval(updateMarketData, 60000);
 
       /* ---------- Mobile menu toggle ---------- */
       function closeMenu() {
