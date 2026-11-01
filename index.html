@@ -259,10 +259,6 @@
       <p class="mt-6 sm:mt-8 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">
         A new crypto community is taking shape. Follow along as Neonpaw prepares its next steps.
       </p>
-      <p class="mt-4 text-sm sm:text-base font-semibold text-neon-cyan/90">
-        Ticker: NEONPAW. Planned total supply: 1,000,000,000 tokens. Launch platform: Jupiter.
-      </p>
-
       <div class="mt-7 max-w-3xl mx-auto text-left">
         <div class="card-glow rounded-xl px-5 py-4 min-w-0 flex flex-wrap items-center justify-between gap-4">
           <div class="min-w-0 flex-1">
@@ -277,6 +273,7 @@
           <div id="token-explorer-links" class="hidden w-full flex flex-wrap gap-2">
             <a id="jupiter-token-link" class="px-3 py-2 rounded-lg border border-neon-cyan/50 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/10" target="_blank" rel="noopener noreferrer">Jupiter</a>
             <a id="solscan-token-link" class="px-3 py-2 rounded-lg border border-neon-cyan/50 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/10" target="_blank" rel="noopener noreferrer">Solscan</a>
+            <a id="coinmarketcap-token-link" class="px-3 py-2 rounded-lg border border-neon-cyan/50 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/10" target="_blank" rel="noopener noreferrer">CoinMarketCap</a>
             <a id="dexscreener-token-link" class="px-3 py-2 rounded-lg border border-neon-cyan/50 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/10" target="_blank" rel="noopener noreferrer">DexScreener</a>
           </div>
         </div>
@@ -354,8 +351,7 @@
             The Neonpaw Story
           </h2>
           <p class="text-gray-300 text-base lg:text-lg leading-relaxed mb-5">
-            Neonpaw is a new crypto community project. Its supply and network details
-            have not been announced. The ticker is NEONPAW, with Jupiter as the planned launch platform.
+            Neonpaw is preparing to launch through Jupiter. Network details will be shared when confirmed.
           </p>
           <p class="text-gray-300 text-base lg:text-lg leading-relaxed mb-8">
             This page will be updated when the new project's details are confirmed.
@@ -405,20 +401,12 @@
         <!-- Stats -->
         <div id="launch-status" class="reveal order-1 lg:order-2 space-y-4 scroll-mt-24">
           <div class="card-glow rounded-xl px-6 py-5 flex items-center justify-between gap-4">
-            <span class="font-bold text-gray-300 uppercase tracking-wider text-sm">Project name</span>
-            <span class="font-black text-neon-pink text-glow-pink text-lg sm:text-2xl">Neonpaw</span>
-          </div>
-          <div class="card-glow rounded-xl px-6 py-5 flex items-center justify-between gap-4">
             <span class="font-bold text-gray-300 uppercase tracking-wider text-sm">Ticker</span>
             <span class="font-black text-neon-cyan text-glow-cyan text-lg sm:text-2xl">NEONPAW</span>
           </div>
           <div class="card-glow rounded-xl px-6 py-5 flex items-center justify-between gap-4">
             <span class="font-bold text-gray-300 uppercase tracking-wider text-sm">Total supply</span>
             <span class="font-black text-neon-cyan text-glow-cyan text-lg sm:text-2xl">1,000,000,000 NEONPAW</span>
-          </div>
-          <div class="card-glow rounded-xl px-6 py-5 flex items-center justify-between gap-4">
-            <span class="font-bold text-gray-300 uppercase tracking-wider text-sm">Total supply</span>
-            <span class="font-black text-neon-cyan text-glow-cyan text-lg sm:text-2xl">To be announced</span>
           </div>
           <div class="card-glow rounded-xl px-6 py-5 flex items-center justify-between gap-4">
             <span class="font-bold text-gray-300 uppercase tracking-wider text-sm">Launch platform</span>
@@ -441,7 +429,7 @@
           NEONPAW launch details are coming
         </h2>
         <p class="mt-4 max-w-xl mx-auto text-gray-400">
-          Ticker: NEONPAW. Supply and network details are pending; the Jupiter purchase link will be added after launch.
+          The Jupiter purchase link will be added after launch; network details will be confirmed.
         </p>
       </div>
 
@@ -453,9 +441,9 @@
             <img src="assets/images/icon-wallet.webp" alt="Wallet icon"
                  class="blend-screen w-full h-full object-cover rounded-xl" loading="lazy" />
           </div>
-          <h3 class="text-xl font-extrabold text-neon-cyan mb-2">Token details</h3>
+          <h3 class="text-xl font-extrabold text-neon-cyan mb-2">Jupiter purchase link</h3>
           <p class="text-gray-400 text-sm leading-relaxed">
-            The ticker is NEONPAW. Total supply will be announced when confirmed.
+            The official purchase link will be added after launch.
           </p>
         </div>
 
@@ -543,7 +531,7 @@
             <p class="text-neon-purple text-xs font-bold tracking-[0.25em] uppercase mb-1">Phase 2</p>
             <h3 class="text-xl font-extrabold text-neon-purple text-glow-purple mb-2">Confirm launch details</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
-              Confirm supply and network details for the NEONPAW launch on Jupiter.
+              Confirm network details and publish the Jupiter purchase link.
               </p>
           </div>
         </div>
@@ -678,6 +666,7 @@
       var tokenExplorerLinks = document.getElementById('token-explorer-links');
       var jupiterTokenLink = document.getElementById('jupiter-token-link');
       var solscanTokenLink = document.getElementById('solscan-token-link');
+      var coinMarketCapTokenLink = document.getElementById('coinmarketcap-token-link');
       var dexscreenerTokenLink = document.getElementById('dexscreener-token-link');
 
       if (isValidSolanaMint) {
@@ -686,6 +675,7 @@
         tokenExplorerLinks.classList.remove('hidden');
         jupiterTokenLink.href = 'https://jup.ag/swap/SOL-' + tokenMintAddress;
         solscanTokenLink.href = 'https://solscan.io/token/' + tokenMintAddress;
+        coinMarketCapTokenLink.href = 'https://dex.coinmarketcap.com/ru/token/solana/' + tokenMintAddress + '/';
         dexscreenerTokenLink.href = 'https://dexscreener.com/solana/' + tokenMintAddress;
         document.querySelectorAll('[data-jupiter-buy-link]').forEach(function (link) {
           link.href = jupiterTokenLink.href;
