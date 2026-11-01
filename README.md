@@ -1,9 +1,12 @@
-# Neon Cat Paw Website
-Official landing page for the Neon Cat Paw (NPAW) meme coin.
+# Neonpaw Website
+Pre-launch landing page for the Neonpaw crypto project.
 
-Planned total supply: 1,000,000,000 NPAW (to be verified on-chain after mint).
+Ticker: NEONPAW
+Planned launch platform: [Jupiter](https://jup.ag)
+Supply and network: to be announced.
+Purchase link: will be added after launch.
 
-Live site: https://neoncatpaw.vercel.app
+Live site: https://neonpaw.vercel.app/
 
 X: https://x.com/neoncatpaw
 Telegram: https://t.me/neoncatpaw
