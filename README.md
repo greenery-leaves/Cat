@@ -3,7 +3,8 @@ Pre-launch landing page for the Neonpaw crypto project.
 
 Ticker: NEONPAW
 Planned launch platform: [Jupiter](https://jup.ag)
-Supply and network: to be announced.
+Planned total supply: 1,000,000,000 NEONPAW.
+Network: to be confirmed.
 Purchase link: will be added after launch.
 
 Live site: https://neonpaw.vercel.app/
