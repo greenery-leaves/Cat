@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="60" y1="30" x2="1130" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07131F"/>
+      <stop offset="1" stop-color="#170D24"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="132" y1="97" x2="1065" y2="461" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00F0FF" stop-opacity=".8"/>
+      <stop offset=".52" stop-color="#8B5CF6" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#FF2EC8" stop-opacity=".8"/>
+    </linearGradient>
+    <linearGradient id="paw" x1="493" y1="180" x2="722" y2="394" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00F0FF"/>
+      <stop offset="1" stop-color="#FF2EC8"/>
+    </linearGradient>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M38 0H0V38" stroke="#8CC6FF" stroke-opacity=".08"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="560" rx="26" fill="url(#bg)"/>
+  <rect width="1200" height="560" rx="26" fill="url(#grid)"/>
+  <path d="M0 428C174 333 297 525 459 426S766 338 921 426s197 52 279-4" stroke="#00F0FF" stroke-opacity=".18" stroke-width="2"/>
+  <path d="M0 467C165 373 305 557 477 457s289-85 441 0 202 51 282-2" stroke="#FF2EC8" stroke-opacity=".16" stroke-width="2"/>
+  <rect x="99" y="75" width="1002" height="410" rx="24" fill="#090D19" fill-opacity=".88" stroke="url(#frame)" stroke-width="3"/>
+  <path d="M100 139H1100" stroke="#91A9C6" stroke-opacity=".22"/>
+  <circle cx="137" cy="108" r="7" fill="#FF2EC8"/>
+  <circle cx="161" cy="108" r="7" fill="#8B5CF6"/>
+  <circle cx="185" cy="108" r="7" fill="#00F0FF"/>
+  <text x="235" y="116" fill="#D9E7F5" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3">NEONPAW / LAUNCH SETUP</text>
+  <rect x="153" y="184" width="330" height="225" rx="18" fill="#0E1524" stroke="#00F0FF" stroke-opacity=".42"/>
+  <text x="184" y="229" fill="#00F0FF" font-family="Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="2">PRE-LAUNCH CHECKLIST</text>
+  <g stroke="#B6C5D8" stroke-opacity=".38" stroke-width="2">
+    <rect x="185" y="258" width="22" height="22" rx="5"/><rect x="185" y="309" width="22" height="22" rx="5"/><rect x="185" y="360" width="22" height="22" rx="5"/>
+  </g>
+  <g fill="#D9E7F5" fill-opacity=".84">
+    <rect x="225" y="263" width="177" height="9" rx="4.5"/><rect x="225" y="314" width="207" height="9" rx="4.5"/><rect x="225" y="365" width="151" height="9" rx="4.5"/>
+  </g>
+  <g fill="#8A9BB0" fill-opacity=".58">
+    <rect x="225" y="278" width="131" height="6" rx="3"/><rect x="225" y="329" width="164" height="6" rx="3"/><rect x="225" y="380" width="112" height="6" rx="3"/>
+  </g>
+  <circle cx="790" cy="294" r="139" fill="#101624" stroke="url(#frame)" stroke-width="3"/>
+  <circle cx="790" cy="294" r="116" stroke="#D5E9FF" stroke-opacity=".12" stroke-width="1.5" stroke-dasharray="5 10"/>
+  <g fill="url(#paw)" filter="url(#glow)">
+    <ellipse cx="715" cy="220" rx="23" ry="31" transform="rotate(-28 715 220)"/>
+    <ellipse cx="765" cy="192" rx="22" ry="31" transform="rotate(-9 765 192)"/>
+    <ellipse cx="818" cy="194" rx="22" ry="31" transform="rotate(9 818 194)"/>
+    <ellipse cx="867" cy="222" rx="23" ry="31" transform="rotate(28 867 222)"/>
+    <path d="M790 245c-24 0-39 24-57 43-20 21-39 34-32 58 7 22 30 27 51 21 15-4 24-12 38-12s23 8 38 12c21 6 44 1 51-21 7-24-12-37-32-58-18-19-33-43-57-43Z"/>
+  </g>
+  <path d="M954 198h71M976 230h49M956 387h69" stroke="#FF2EC8" stroke-opacity=".58" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="1028" cy="198" r="5" fill="#00F0FF"/><circle cx="1028" cy="230" r="5" fill="#8B5CF6"/><circle cx="1028" cy="387" r="5" fill="#FF2EC8"/>
+</svg>
