@@ -9,10 +9,6 @@
       <stop offset=".52" stop-color="#8B5CF6" stop-opacity=".72"/>
       <stop offset="1" stop-color="#FF2EC8" stop-opacity=".8"/>
     </linearGradient>
-    <linearGradient id="paw" x1="493" y1="180" x2="722" y2="394" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#00F0FF"/>
-      <stop offset="1" stop-color="#FF2EC8"/>
-    </linearGradient>
     <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
       <path d="M38 0H0V38" stroke="#8CC6FF" stroke-opacity=".08"/>
     </pattern>
@@ -44,7 +40,7 @@
   </g>
   <circle cx="790" cy="294" r="139" fill="#101624" stroke="url(#frame)" stroke-width="3"/>
   <circle cx="790" cy="294" r="116" stroke="#D5E9FF" stroke-opacity=".12" stroke-width="1.5" stroke-dasharray="5 10"/>
-  <g fill="url(#paw)" filter="url(#glow)">
+  <g transform="translate(237 88) scale(.7)" fill="#FFFFFF" filter="url(#glow)">
     <ellipse cx="715" cy="220" rx="23" ry="31" transform="rotate(-28 715 220)"/>
     <ellipse cx="765" cy="192" rx="22" ry="31" transform="rotate(-9 765 192)"/>
     <ellipse cx="818" cy="194" rx="22" ry="31" transform="rotate(9 818 194)"/>
