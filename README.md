@@ -9,5 +9,5 @@ Purchase link: will be added after launch.
 
 Live site: https://neonpaw.vercel.app/
 
-X: https://x.com/neoncatpaw
-Telegram: https://t.me/neoncatpaw
+X: https://x.com/neonpawcat
+Telegram: https://t.me/neonpawcat
