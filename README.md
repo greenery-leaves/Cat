@@ -1,11 +1,11 @@
 # Neonpaw Website
-Pre-launch landing page for the Neonpaw crypto project.
+Official website for Neonpaw (NEONPAW), live on Solana through Jupiter.
 
 Ticker: NEONPAW
-Planned launch platform: [Jupiter](https://jup.ag)
-Planned total supply: 1,000,000,000 NEONPAW.
-Network: to be confirmed.
-Purchase link: will be added after launch.
+Network: Solana
+Total supply: 1,000,000,000 NEONPAW
+Mint: CP6cHJBRLCN3rtUSUkCgjQupLhzQQN8Vm9GUJWdtjupx
+Jupiter: https://jup.ag/swap/SOL-CP6cHJBRLCN3rtUSUkCgjQupLhzQQN8Vm9GUJWdtjupx
 
 Live site: https://neonpaw.vercel.app/
 
