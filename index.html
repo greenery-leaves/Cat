@@ -202,8 +202,8 @@
             class="social-shimmer px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300">
           Telegram
         </a>
-        <a href="#launch-status" class="neon-btn px-5 py-2 rounded-lg text-sm font-extrabold tracking-wide text-white">
-          Project status
+        <a data-jupiter-buy-link target="_blank" rel="noopener noreferrer" class="neon-btn hidden px-5 py-2 rounded-lg text-sm font-extrabold tracking-wide text-white">
+          Buy on Jupiter
         </a>
       </nav>
 
@@ -231,8 +231,8 @@
             class="mobile-link social-shimmer px-4 py-3 rounded-lg font-bold transition-colors">
           Telegram
         </a>
-        <a href="#launch-status" class="mobile-link neon-btn px-4 py-3 rounded-lg text-center font-extrabold tracking-wide text-white">
-          Project status
+        <a data-jupiter-buy-link target="_blank" rel="noopener noreferrer" class="mobile-link neon-btn hidden px-4 py-3 rounded-lg text-center font-extrabold tracking-wide text-white">
+          Buy on Jupiter
         </a>
       </nav>
     </div>
@@ -270,8 +270,12 @@
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" /><path stroke-linecap="round" stroke-linejoin="round" d="M16 8V5a2 2 0 00-2-2H5a2 2 0 00-2 2v9a2 2 0 002 2h3" /></svg>
             </button>
           </div>
-          <div id="token-explorer-links" class="hidden w-full flex flex-wrap gap-2">
-            <a id="jupiter-token-link" class="px-3 py-2 rounded-lg border border-neon-cyan/50 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/10" target="_blank" rel="noopener noreferrer">Jupiter</a>
+        </div>
+      </div>
+      <div id="token-explorer-links" class="hidden mt-4 max-w-3xl mx-auto">
+        <div class="card-glow rounded-xl px-5 py-4">
+          <h2 class="text-neon-cyan text-xs font-bold uppercase tracking-wider mb-3">Token links</h2>
+          <div class="flex flex-wrap gap-2">
             <a id="solscan-token-link" class="px-3 py-2 rounded-lg border border-neon-cyan/50 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/10" target="_blank" rel="noopener noreferrer">Solscan</a>
             <a id="coinmarketcap-token-link" class="px-3 py-2 rounded-lg border border-neon-cyan/50 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/10" target="_blank" rel="noopener noreferrer">CoinMarketCap</a>
             <a id="dexscreener-token-link" class="px-3 py-2 rounded-lg border border-neon-cyan/50 text-sm font-bold text-neon-cyan hover:bg-neon-cyan/10" target="_blank" rel="noopener noreferrer">DexScreener</a>
@@ -280,12 +284,8 @@
       </div>
 
       <div class="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-        <a href="#launch-status"
-           class="neon-btn w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-extrabold tracking-wide text-white opacity-80">
-          Project status
-        </a>
         <a data-jupiter-buy-link target="_blank" rel="noopener noreferrer"
-           class="neon-btn hidden w-full sm:w-auto px-8 py-4 rounded-xl text-lg font-extrabold tracking-wide text-white">Buy on Jupiter</a>
+           class="neon-btn hidden w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-extrabold tracking-wide text-white">Buy on Jupiter</a>
         <a href="https://x.com/neonpawcat" target="_blank" rel="noopener noreferrer"
            class="social-shimmer w-full sm:w-auto px-8 py-4 rounded-xl text-lg font-extrabold tracking-wide">X</a>
         <a href="https://t.me/neonpawcat" target="_blank" rel="noopener noreferrer"
@@ -644,9 +644,9 @@
     </div>
   </footer>
 
-        <a href="#launch-status"
-          class="md:hidden fixed z-40 inset-x-4 bottom-4 neon-btn rounded-xl px-6 py-4 text-center text-base font-extrabold tracking-wide text-white shadow-2xl opacity-90"
-          style="padding-bottom: max(1rem, env(safe-area-inset-bottom));" aria-label="View Neonpaw project status">Project status</a>
+        <a data-jupiter-buy-link target="_blank" rel="noopener noreferrer"
+          class="md:hidden hidden fixed z-40 inset-x-4 bottom-4 neon-btn rounded-xl px-6 py-4 text-center text-base font-extrabold tracking-wide text-white shadow-2xl"
+          style="padding-bottom: max(1rem, env(safe-area-inset-bottom));" aria-label="Buy NEONPAW on Jupiter">Buy on Jupiter</a>
 
   <!-- ================= SCRIPTS ================= -->
   <script>
@@ -663,7 +663,6 @@
       var contractAddressValue = document.getElementById('contract-address-value');
       var copyContractAddress = document.getElementById('copy-contract-address');
       var tokenExplorerLinks = document.getElementById('token-explorer-links');
-      var jupiterTokenLink = document.getElementById('jupiter-token-link');
       var solscanTokenLink = document.getElementById('solscan-token-link');
       var coinMarketCapTokenLink = document.getElementById('coinmarketcap-token-link');
       var dexscreenerTokenLink = document.getElementById('dexscreener-token-link');
@@ -672,12 +671,12 @@
         contractAddressValue.textContent = tokenMintAddress;
         copyContractAddress.classList.remove('hidden');
         tokenExplorerLinks.classList.remove('hidden');
-        jupiterTokenLink.href = 'https://jup.ag/swap/SOL-' + tokenMintAddress;
+        var jupiterBuyUrl = 'https://jup.ag/swap/SOL-' + tokenMintAddress;
         solscanTokenLink.href = 'https://solscan.io/token/' + tokenMintAddress;
         coinMarketCapTokenLink.href = 'https://dex.coinmarketcap.com/ru/token/solana/' + tokenMintAddress + '/';
         dexscreenerTokenLink.href = 'https://dexscreener.com/solana/' + tokenMintAddress;
         document.querySelectorAll('[data-jupiter-buy-link]').forEach(function (link) {
-          link.href = jupiterTokenLink.href;
+          link.href = jupiterBuyUrl;
           link.classList.remove('hidden');
         });
 
